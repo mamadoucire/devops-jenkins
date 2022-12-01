@@ -1,5 +1,5 @@
 pipeline {
-     def registryProjet='registry.gitlab.com/xavki/presentations-jenkins/wartest'
+     def registryProjet='registry.gitlab.com/projets33/jenkins_push'
      def IMAGE="${registryProjet}:version-${env.BUILD_ID}"
 
     stages{

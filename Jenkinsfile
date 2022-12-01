@@ -1,5 +1,7 @@
 pipeline {
-    agent any
+     def registryProjet='registry.gitlab.com/xavki/presentations-jenkins/wartest'
+     def IMAGE="${registryProjet}:version-${env.BUILD_ID}"
+
     stages{
         stage('Build Maven'){
             steps{

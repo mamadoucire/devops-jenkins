@@ -16,15 +16,11 @@ pipeline {
                 }
             }
         }
-        stage('Push image to Hub'){
-            steps{
-                script{
-                   withCredentials([string(credentialsId: 'dockerhub-pwd', variable: 'dockerhubpwd')]) {
-                   sh 'docker login -u javatechie -p ${dockerhubpwd}'
+         stage('Push') {
+          docker.withRegistry('https://registry.gitlab.com', 'reg1') {
+              img.push 'latest'
+              img.push()
 
-}
-                   sh 'docker push mamadoucire/devops-jenkins'
-                }
             }
         }
         stage('Deploy to k8s'){
